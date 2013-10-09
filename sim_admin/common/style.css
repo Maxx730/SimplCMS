@@ -1,0 +1,324 @@
+body,html{
+	margin:0;
+	background-color:black;
+}
+
+/*
+	decided to add a wrapper that will only expand to a certain size, depending on users monitor size this maybe should be editable within the settings somewhere if they want to increase the size of the max width.
+*/
+div#simpl_wrapper{
+	background-color:#E0E0E0;
+	max-width:1000px;
+	min-width:800px;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+#system_title{
+	font-family:sans-serif;
+	font-weight:bold;
+	text-shadow:0px 1px 0px #2A77FC;
+	float:left;
+	font-size:12px;
+	color:#002756;
+	margin-top:3px;
+	float;left;
+	margin-left:7px;
+}
+
+#system_footer{
+	width:100%;
+	margin:0 auto;
+	background:#001C49;
+	float:left;
+	padding:7px;
+	font-size:10px;
+	font-family:sans-serif;
+	font-weight:bold;
+	color:#DAE2ED;
+	text-shadow:0px 1px 0px black;
+}
+
+#simpl_user_pages{
+	position:absolute;
+	right:0px;
+	margin-right:10px;
+	color:#002756;
+	text-shadow:0px 1px 0px #2A77FC;
+}
+
+#simpl_user_pages a{
+	font-family:sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+}
+
+#simpl_user_pages a:hover{
+	text-decoration:underline;
+}
+
+#simpl_user_pages a:visited{
+	color:#002756;
+	text-shadow:0px 1px 0px #2A77FC;
+}
+
+div#simpl_user_function_menu{
+	width:100%;
+background: #006aff; /* Old browsers */
+background: -moz-linear-gradient(top,  #006aff 0%, #004999 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006aff), color-stop(100%,#004999)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #006aff 0%,#004999 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #006aff 0%,#004999 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #006aff 0%,#004999 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #006aff 0%,#004999 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', endColorstr='#004999',GradientType=0 ); /* IE6-9 */
+	position:relative;
+	padding:5px;
+	border-bottom:solid 1px #0057AF;
+	  -moz-box-shadow:    0px 1px 0px 0px #00193D;
+  -webkit-box-shadow: 0px 1px 0px 0px #00193D;
+  box-shadow:         0px 1px 0px 0px #00193D;
+  height:20px;
+}
+
+div#simpl_main_cat_menu{
+	background:#001C49;
+	float:left;
+	width:100%;
+	margin-top:1px;
+}
+
+ul#simpl_main_menu li{
+	float:left;
+	margin-left:8px;
+}
+
+ul#simpl_main_menu{
+	list-style:none;
+	padding-bottom:5px;
+	margin-top:5px;
+	margin-left:-35px;
+}
+
+ul#simpl_main_menu a{
+	color:#DAE2ED;
+	font-family:sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px black;
+}
+
+ul#simpl_main_menu a:hover{
+	text-decoration:underline;
+}
+
+ul#simpl_main_menu a:visited{
+	color:#DAE2ED;
+}
+
+#simpl_main_page_content{
+	border-top:solid 1px white;
+	float:left;
+	width:100%;
+	padding:20px;
+}
+
+div#simpl_cat_manage_title{
+	color:#3F3F3F;
+	text-shadow:0px 1px 0px white;
+	padding:9px;
+	padding-left:12px;
+	float:left;
+	width:100%;
+	font-family:sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	border-bottom:solid 1px white;
+}
+
+div.simpl_manage_title{
+	float:left;
+}
+
+table.simpl_manage_objects{
+	font-family:sans-serif;
+	font-size:12px;
+	border-top:solid 1px #D1D1D1;
+	border-bottom:solid 1px #F2F2F2;
+	width:100%;
+	padding:7px;
+}
+
+div.simpl_add_new_button{
+background: #006aff; /* Old browsers */
+background: -moz-linear-gradient(top,  #006aff 0%, #004999 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006aff), color-stop(100%,#004999)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #006aff 0%,#004999 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #006aff 0%,#004999 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #006aff 0%,#004999 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #006aff 0%,#004999 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', endColorstr='#004999',GradientType=0 ); /* IE6-9 */
+
+	float:left;
+	padding:7px;
+
+	border-top:solid 1px #1677FF;
+		  -moz-box-shadow:    0px -1px 0px 0px #006BD6;
+  -webkit-box-shadow: 0px -1px 0px 0px #006BD6;
+  box-shadow:         0px -1px 0px 0px #006BD6;
+}
+
+div.simpl_add_new_button:hover{
+	background:red;
+}
+
+div.simpl_add_new_button a{
+	color:red;
+	font-family:sans-serif;
+	font-size:12px;
+	color:#002756;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0px 1px 0px #2A77FC;
+
+}
+
+div.simpl_add_new_button a:hover{
+	
+}
+
+div.simpl_add_new_button a:visited{
+	color:red;
+	color:#002756;
+	text-shadow:0px 1px 0px #2A77FC;
+}
+
+div#simpl_manage_objects_actions{
+	background:#B2B2B2;
+	float:left;
+	width:100%;
+	border-top:solid 1px #939393;
+}
+
+div.delete_button{
+	margin-left:1px;
+}
+
+div.simpl_error{
+	border:solid 1px red;
+	padding:7px;
+	margin-top:2px;
+	margin-left:2px;
+	background:#FFB5B5;
+	border-radius:3px;
+	font-size:10px;
+	font-family:sans-serif;
+	color:#6B4C4C;
+	position:relative;
+}
+
+div.simpl_error_text{
+	position:absolute;
+	top:13px;
+	left:40px;
+	color:#350000;
+}
+
+/*
+	Object manipulation styling below.
+*/
+
+div#object_manipulation{
+	padding:15px;
+}
+
+div#object_manipulation input:focus{
+	outline:none;
+}
+
+input.add_title_input{
+
+}
+
+div.object_add_title{
+	font-family:sans-serif;
+	font-size:20pt;
+	text-shadow:0px 1px 0px white;
+	color:#3F3F3F; 
+}
+
+input#upload_file_chooser{
+	padding:10px;
+}
+
+input#upload_file_name{
+	padding:7px;
+}
+
+input#file_upload_button{
+	padding:7px;
+	cursor:pointer;
+}
+
+/*
+	User profile styling below.
+*/
+
+div#user_profile_main_content{
+	padding:10px;
+	float:left;
+	height:800px;
+	width:100%;
+}
+
+div#user_profile_title{
+	font-family:sans-serif;
+	font-size:20pt;
+	float:left;
+	width:50%;
+}
+
+div#user_profile_stats{
+	font-family:sans-serif;
+	font-size:20pt;
+	float:left;
+	width:48%;
+}
+
+table#user_profile_info{
+
+}
+
+div#user_profile_interactions{
+	width:100%;
+	float:left;
+	margin-left:-17px;
+}
+
+div.user_profile_button{
+	padding:7px;
+	float:right;
+	margin-right:5px;
+background: #ededed; /* Old browsers */
+background: -moz-linear-gradient(top,  #ededed 0%, #bcbcbc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ededed 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ededed 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ededed 0%,#bcbcbc 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ededed 0%,#bcbcbc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#bcbcbc',GradientType=0 ); /* IE6-9 */
+
+	text-align:center;
+	font-family:sans-serif;
+	font-size:10px;
+	color:#595959;
+	text-shadow:0px 1px 0px white;
+	cursor:pointer;
+	font-weight:bold;
+	border:solid 1px white;
+	-moz-box-shadow:    0px 0px 0px 1px #9B9B9B;
+	-webkit-box-shadow: 0px 0px 0px 1px #9B9B9B;
+	box-shadow:         0px 0px 0px 1px #9B9B9B;
+}
+
