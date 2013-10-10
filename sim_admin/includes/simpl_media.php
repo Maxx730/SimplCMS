@@ -20,11 +20,10 @@
 			if($this->user_role == 0 || $this->user_role == 1 && isset($_POST['upload_file_name']) && $_POST['upload_file_name'] != "" && isset($_POST['file_url']) && $_POST['file_url'] != ""){
 
 				//clean the file name and url to prevent SQL injection.
-				$new_file_name = mysql_real_escape_string($_POST['upload_file_name']);
-				$new_file_url = mysql_real_escape_string($_POST['file_url']);
+				$new_file_name = mysql_real_escape_string($_FILES['new_upload_file']['name']);
+				$new_file_url = mysql_real_escape_string($_FILES['new_upload_file']['tmp_name']);
 
-				$file_to_upload = new simpl_file($new_file_name,$this->upload_user_name,$new_file_url);
-
+				$file_to_upload = new simpl_file($file);
 				
 			}else{
 				echo "<div class = 'simpl_error'><img src = 'img/error.png'/><div class = 'simpl_error_text'>Error: Permissions.</div></div>";	
@@ -69,7 +68,8 @@
 				$this->file_name = $_FILES['new_upload_file']['name'];
 				$this->file_ext = $_FILES['new_upload_file']['type'];
 			}else{
-				echo "<div class = 'simpl_error'><img src = 'img/error.png'/><div class = 'simpl_error_text'>Error: User does not exist.</div></div>";					
+				//display an error if the file does not meet the expected standards, the errors for file size or file type should be pushed to an error object that needs to be created.
+				echo "<div class = 'simpl_error'><img src = 'img/error.png'/><div class = 'simpl_error_text'>Error: File does not meet the requirements.</div></div>";					
 			}
 			
 			//initialize the logged in user.

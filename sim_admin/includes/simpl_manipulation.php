@@ -19,61 +19,90 @@
 
 		//function displays fields for editing content depending on the catagory chosen.
 		public function display_fields($action,$cat){
-			$form = "<div id = 'object_manipulation'><form name = 'simpl_add_object' action = 'simpl_add.php' enctype = 'multipart/form-data'";
+			
+			//only change the display between editing and adding if the catagory is pages or users because these are the only two items worth editing, otherwise just show the add page.
+			if($cat == "page" || $cat == "user"){
+				//output changes based on what action is chosen which then will change the where the form data will go also whether or not to input the corrent information.
+				switch($action){
+					case "add":
+						$form ="<div id = 'object_manipulation'>
+							<form name = 'simpl_add_object' action = 'simpl_edit.php' enctype = 'multipart/form-data'";
 
-			switch($cat){
-				case "page":
-					$form .= " method = 'POST'><input type = 'text' style = 'display:none;' name = 'cat' value = 'page'/><input type = 'text' name = 'page_title' placeholder = 'Page Title' class = 'add_title_input'/>
-					<br />
-					<input type = 'text' name = 'page_author' placeholder = '".$this->username."'/><br /><textarea name = 'page_content'></textarea>
-							<br />
-					<select name = 'page_tags'>
-					".
-					$this->find_tags()
-					."
-					</select>
-					<br />
-					<input type = 'submit' value ='Add'/>
-					<br />
-					<input type = 'submit' value = 'Create'/>";
-				break;
+							//find out which catagory to edit.
+							switch($cat){
+								case "page":
+									$form .= " method = 'POST'>
+										<img src = 'img/cat_icons/document-add.png'/>Add Page
+										<br />
+										<input type = 'text' name = 'new_page_title' placeholder = 'Title'/>
+										<br />
+											<input type = 'text' name = 'new_page_author' placeholder = '".$this->username."'/>
+											<br />
+												<textarea id = 'simpl_page_content'>
+												</textarea>
+											<br />
+												<input type = 'submit' value = 'Create'/>";
+								break;
 
-				case "user":
-					$form .= "<input type = 'text' name = 'new_username' placeholder = 'Desired Username'/>
-					<br />
-					<input type = 'password' name = 'new_password' placeholder = 'Password'/>
-					<br />
-					<input type = 'password' name = 'new_password_check' placeholder = 'Repeat Password'/>
-					<br />
-					<br />
-					<input type = 'text' name = 'new_first_name' placeholder = 'First Name'/>
-					<br />
-					<input type = 'text' name = 'new_last_name' placeholder = 'Last Name'/>
-					<br />
-					<textarea name = 'new_user_about'>
+								case "user":
+									$form .= " method = 'POST'>
+										<img src = 'img/cat_icons/user-4-add.png'/>Add User
+										<br />
+											<input type = 'text' name = 'new)user_name' placeholder = 'Username'/>
+										<br />
+											<input type = 'password' name = 'new_user_password' placeholder = 'Password'/>
+										<br />
+											<input type = 'password' name = 'new_user_check_password' placeholder = 'Repeat Password'/>";
+								break;
+							}
 
-					</textarea>
-					<br />
-					<input type = 'submit' value = 'Submit'/>";
-				break;
+					break;
 
-				case "tag":
-					$form .= "<input type = 'text' name = 'new_tag' placeholder = 'New Tag'/>
-					<br />
-					<input type = 'submit' value = 'Create'/>";
-				break;
+					case "edit":
+						$form = "<div id = 'object_manipulation'>
+						<form name = 'simpl_edit_object' action = 'simpl_edit.php' enctype = 'multipart/form-data'";
 
-				case "med":
-					$form .= " method = 'POST'> <input type = 'text' style = 'display:none;' name = 'cat' value = 'med'/><input type = 'text' name = 'manip_action' value = 'true' style = 'display:none'/><input type = 'text' name = 'manip_action_type' value = 'add' style = 'display:none'/>
-					<div class = 'object_add_title'>
-						File Upload
-					</div>
-					<br />
-					<input type = 'file' name = 'new_upload_file' id = 'upload_file_chooser'/>
-					<br />
-					<input type = 'text' placeholder = 'File Name' name = 'file_upload_name' id = 'upload_file_name'/>
-					<input type = 'submit' value = 'Upload' id = 'file_upload_button'/>";
-				break;
+						//find out which catagory to edit.
+						switch($cat){
+							case "page":
+
+							break;
+
+							case "user":
+
+							break;
+						}
+
+					break;
+				}
+			}else{
+
+				$form = "<div id = 'object_manipulation'>
+				<form name = 'simpl_add_object' action = 'simpl_add.php' enctype = 'multipart/form-data'";
+
+				//if the catagory is not page or user, then switch between objects that do not need to have an edit page.
+				switch($cat){
+
+
+					case "tag":
+						$form .= "<input type = 'text' name = 'new_tag' placeholder = 'New Tag'/>
+						<br />
+						<input type = 'submit' value = 'Create'/>";
+					break;
+
+					case "med":
+						$form .= " method = 'POST'> <input type = 'text' style = 'display:none;' name = 'cat' value = 'med'/><input type = 'text' name = 'manip_action' value = 'true' style = 'display:none'/><input type = 'text' name = 'manip_action_type' value = 'add' style = 'display:none'/>
+						<div class = 'object_add_title'>
+							File Upload
+						</div>
+						<br />
+						<input type = 'file' name = 'new_upload_file' id = 'upload_file_chooser'/>
+						<br />
+						<input type = 'text' placeholder = 'File Name' name = 'file_upload_name' id = 'upload_file_name'/>
+						<input type = 'submit' value = 'Upload' id = 'file_upload_button'/>";
+					break;
+				}
+
 			}
 
 			echo $form .= "</div></form>";
@@ -160,7 +189,7 @@
 					//make sure that the logged user is initialized as a global object before creating a new media object.
 					global $logged_user;
 					$new_media = new simpl_media($logged_user);
-
+					$new_media->upload($_FILES['new_upload_file']);
 				break;
 			}
 		}

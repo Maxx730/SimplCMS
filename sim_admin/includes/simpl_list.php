@@ -44,13 +44,13 @@ class simpl_list{
 		 
 		 		 switch($this->type){
 					case "page":
-						$tds = "<td><input type = 'checkbox'/></td><td>".$array['pID']."</td><td>".$array['title']."</td><td>".$array['author']."</td>";
+						$tds = "<td><input type = 'checkbox'/></td><td>".$array['pID']."</td><td>".$array['title']."</td><td>".$array['author']."</td><td class = 'simpl_edit_button'><a href = ''>Edit</a></td>";
 					break;
 					case "user":
-						$tds = "<td>".$array['uID']."</td><td>".$array['username']."</td><td>".$array['rID']."</td>";
+						$tds = "<td><input type = 'checkbox'/></td><td>".$array['uID']."</td><td>".$array['username']."</td><td>".$array['rID']."</td><td class = 'simpl_edit_button'><a href = ''>Edit</a></td>";
 					break;
 					case "tag":
-						$tds = "<td>".$array['sID']."</td><td>".$array['label']."</td>";
+						$tds = "<td><input type = 'checkbox'/></td><td>".$array['sID']."</td><td>".$array['label']."</td>";
 					break;
 					case "med":
 						$tds = "<td>".$array['medID']."</td><td>".$array['file_name']."</td><td>".$array['file_url']."</td><td>".$array['file_type']."</td><td>".$array['file_uploader']."</td>";
@@ -75,23 +75,27 @@ class simpl_list{
 	public function manage_title(){
 		switch($this->type){
 			case "page":
-				echo "<div class = 'simpl_manage_title'>Manage : Pages</div>";
+				echo "<img src = 'img/cat_icons/book-lines-2.png' class = 'simpl_title_img'/> <div class = 'simpl_manage_title'>
+						
+						Manage : Pages
+					</div>";
 			break;
 
 			case "user":
-				echo "<div class = 'simpl_manage_title'>Manage : Users</div>";
+				echo "<img src = 'img/cat_icons/user-4.png' class = 'simpl_title_img'/><div class = 'simpl_manage_title'> Manage : Users</div>";
 			break;
 
 			case "tag":
-				echo "<div class = 'simpl_manage_title'>Manage : Tags</div>";
+				echo "<img src = 'img/cat_icons/tag-4.png' class = 'simpl_title_img'/><div class = 'simpl_manage_title'>
+				Manage : Tags</div>";
 			break;
 
 			case "inv":
-				echo "<div class = 'simpl_manage_title'>Manage : Investigators</div>";
+				echo "<img src = 'img/cat_icons/eye-2.png' class = 'simpl_title_img'/><div class = 'simpl_manage_title'>Manage : Investigators</div>";
 			break;
 
 			case "med":
-				echo "<div class = 'simpl_manage_title'>Manage : Media</div>";
+				echo "<img src = 'img/cat_icons/image.png' class = 'simpl_title_img'/><div class = 'simpl_manage_title'>Manage : Media</div>";
 			break;
 		}
 	}

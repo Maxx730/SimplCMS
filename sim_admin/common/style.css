@@ -8,10 +8,20 @@ body,html{
 */
 div#simpl_wrapper{
 	background-color:#E0E0E0;
-	max-width:1000px;
-	min-width:800px;
+	width:100%;
 	margin:0 auto;
 	overflow:hidden;
+}
+
+div#simpl_quick_menu{
+	float:left;
+	margin-top:0px;
+	height:100%;
+	width:30px;
+	background: #070707;
+	border-top:solid 1px #002560;
+	border-right:solid 1px white;
+
 }
 
 #system_title{
@@ -37,6 +47,7 @@ div#simpl_wrapper{
 	font-weight:bold;
 	color:#DAE2ED;
 	text-shadow:0px 1px 0px black;
+	border-top:solid 1px #000D2B;
 }
 
 #simpl_user_pages{
@@ -87,6 +98,7 @@ div#simpl_main_cat_menu{
 	float:left;
 	width:100%;
 	margin-top:1px;
+	border-bottom:solid 1px #000D2B;
 }
 
 ul#simpl_main_menu li{
@@ -121,7 +133,13 @@ ul#simpl_main_menu a:visited{
 	border-top:solid 1px white;
 	float:left;
 	width:100%;
-	padding:20px;
+	margin-left:0px;
+	border-bottom:solid 1px white;
+}
+
+img.simpl_title_img{
+	opacity:.4;
+	position:absolute;
 }
 
 div#simpl_cat_manage_title{
@@ -139,6 +157,7 @@ div#simpl_cat_manage_title{
 
 div.simpl_manage_title{
 	float:left;
+	margin-left:25px;
 }
 
 table.simpl_manage_objects{
@@ -148,25 +167,74 @@ table.simpl_manage_objects{
 	border-bottom:solid 1px #F2F2F2;
 	width:100%;
 	padding:7px;
+	position:relative;
+	float:left;
+}
+
+td.simpl_edit_button{
+	background: #006aff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #006aff 0%, #004999 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006aff), color-stop(100%,#004999)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #006aff 0%,#004999 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #006aff 0%,#004999 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #006aff 0%,#004999 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #006aff 0%,#004999 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', endColorstr='#004999',GradientType=0 ); /* IE6-9 */
+	position:absolute;
+	padding:5px;
+	top:6px;
+	right:7px;
+	width:50px;
+	text-align:center;
+	cursor:pointer;
+	border:solid 1px #1677FF;
+		  -moz-box-shadow:    0px 1px 0px 0px #001C49;
+  -webkit-box-shadow: 0px 1px 0px 0px #001C49;
+  box-shadow:         0px 1px 0px 0px #001C49;
+  border-radius:3px;
+
+}
+
+td.simpl_edit_button a{
+	color:red;
+	font-family:sans-serif;
+	font-size:12px;
+	color:#002756;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0px 1px 0px #2A77FC;
+
+}
+
+td.simpl_edit_button a:hover{
+	
+}
+
+dt.simpl_edit_button a:visited{
+	color:red;
+	color:#002756;
+	text-shadow:0px 1px 0px #2A77FC;
 }
 
 div.simpl_add_new_button{
-background: #006aff; /* Old browsers */
-background: -moz-linear-gradient(top,  #006aff 0%, #004999 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006aff), color-stop(100%,#004999)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #006aff 0%,#004999 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #006aff 0%,#004999 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #006aff 0%,#004999 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #006aff 0%,#004999 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', endColorstr='#004999',GradientType=0 ); /* IE6-9 */
-
+	background: #006aff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #006aff 0%, #004999 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006aff), color-stop(100%,#004999)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #006aff 0%,#004999 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #006aff 0%,#004999 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #006aff 0%,#004999 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #006aff 0%,#004999 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', endColorstr='#004999',GradientType=0 ); /* IE6-9 */
+	
 	float:left;
 	padding:7px;
 
 	border-top:solid 1px #1677FF;
-		  -moz-box-shadow:    0px -1px 0px 0px #006BD6;
-  -webkit-box-shadow: 0px -1px 0px 0px #006BD6;
-  box-shadow:         0px -1px 0px 0px #006BD6;
+	border-bottom:solid 1px #0056B2;
+
+	-moz-box-shadow:    0px -1px 0px 0px #006BD6;
+	-webkit-box-shadow: 0px -1px 0px 0px #006BD6;
+	box-shadow:         0px -1px 0px 0px #006BD6;
 }
 
 div.simpl_add_new_button:hover{
