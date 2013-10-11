@@ -3,6 +3,12 @@
 	// Class is a page object that will grab information about the chosen page by id and provide functions to return information back to the system.
 	class simpl_page{
 
+		//all the necessary information about the currently chosen page.
+		public $page_id;
+		public $page_title;
+		public $page_author;
+		public $page_content;
+
 		public function __construct($page_id){
 
 		}

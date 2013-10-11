@@ -1,17 +1,17 @@
 <?php
 	require 'header.php';
 
-	//check if the user is actually trying to add something otherwise simply supply the fields to edit the object.
-	if(isset($_POST['cat']) && $_POST['cat'] != "" && isset($_POST['manip_action']) && $_POST['manip_action'] == "true"){
+	//check if the user is actually trying to add something otherwise simply supply the fields to edit the object.  If there two POSTs are supplied then the user is actually trying to add an object to the databse.
+	if(isset($_POST['cat']) && isset($_POST['action'])){
 		
 			//create a minpulation object to manipulate what ever object in the databse is needed.
 			$manipulation_object = new simpl_manipulator($check_login->username);
 
 			//find out how the user wants to manipulate the chose object.
-			$manipulation_object->grab_action($_POST['manip_action_type'],$_POST['cat']);
+			$manipulation_object->grab_action($_POST['action'],$_POST['cat']);
 
 	}else{
-		//make sure there is a catagory set, this is required to make sure that the list object has something to pull data for.
+		//make sure there is a catagory set, this is required to make sure that the list object has something to pull data for. 
 		if(isset($_GET['cat']) && $_GET['cat'] != ""){
 			$manipulator = new simpl_manipulator($check_login->username);
 			$manipulator->display_fields('add',$_GET['cat']);
@@ -22,17 +22,7 @@
 			}
 
 		//check if it is actually just POST data because the user did not fill in the correct amount of data fields. 
-		}else if(isset($_POST['page_title']) && $_POST['page_title'] == ""){
-			$error = "<div class = 'simpl_error'><img src = 'img/error.png'/><div class = 'simpl_error_text'>Please fill out at least the title of the new page.</div></div>";
-			echo $error;
-			$manipulator = new simpl_manipulator($check_login->username);
-			$manipulator->display_fields('add',$_POST['cat']);
-		}else{
-			//if there is no catagory selected display an error and send back to the dashboard.
-			header('location:');
 		}
-
-		
 	}
 ?>
 

@@ -36,11 +36,15 @@
 										<br />
 										<input type = 'text' name = 'new_page_title' placeholder = 'Title'/>
 										<br />
-											<input type = 'text' name = 'new_page_author' placeholder = '".$this->username."'/>
+											<input type = 'text' name = 'new_page_author' placeholder = '".$this->username." (Author)'/>
 											<br />
 												<textarea id = 'simpl_page_content'>
 												</textarea>
 											<br />
+											<input type = 'text' name = 'cat' style = 'display:none;' value = 'page'/>
+
+											<input type = 'text' name = 'action' style = 'display:none;' value = 'add'/>
+
 												<input type = 'submit' value = 'Create'/>";
 								break;
 
@@ -85,9 +89,20 @@
 
 
 					case "tag":
-						$form .= "<input type = 'text' name = 'new_tag' placeholder = 'New Tag'/>
+						$form .= " method = 'POST'>
+						Add Tag
 						<br />
+						<input type = 'text' name = 'new_tag' placeholder = 'New Tag'/>
+						<br />
+						<input type = 'text' style = 'display:none' name = 'cat' value = 'tag'/>
+						<input type = 'text' style = 'display:none' name = 'action' value = 'add'/>
 						<input type = 'submit' value = 'Create'/>";
+
+						//create a tag list since there will only be need for one page to add and delete tags.
+						$tag_list_div = "<div id = ''>";
+							$tag_list = new simpl_list("tag");
+							$tag_list_div .= $tag_list->display();
+						$tag_list_div .= "</div>";
 					break;
 
 					case "med":
@@ -116,14 +131,22 @@
 			switch($cat){
 
 				//if the catagory is page, adjust the sql accordingly.
-				case "pages":
-					if(isset($_POST['page_title']) && $_POST['page_title'] != ""){
-						$title = mysql_real_escape_string($_POST['page_title']);
+				case "page":
+					global $connect;
+					global $database_name;
+
+					if(isset($_POST['new_page_title']) && $_POST['new_page_title'] != ""){
+						
+						$title = mysql_real_escape_string($_POST['new_page_title']);
 						$sql .= "pages(title,author,content,parentID) VALUES('$title'";
+					}
+
 					//content is allowed to be blank, only the title and the author are not allowed to be blank.
-					}else if(isset($_POST['page_content'])){
+					if(isset($_POST['new_page_content'])){
 						$content = mysql_real_escape_string($_POST['content']);
-						$sql .= ",'$this->userID','$content'";
+						$sql .= ",'$this->username','$content'";
+					}else{
+						$sql .= ",'$this->username',''";
 					}
 
 					//if there happends to be a parent ID then set it otherwise keep it null.
@@ -134,13 +157,13 @@
 					}
 
 					$sql .= ",'$parentID')";
-					global $connect;
 
 					//make sure that the current user is at least and administrator or author before adding page to database.
 					if($this->role != 0 || $this->role != 1){
 						mysql_query($sql,$connect) or die(mysql_error());
 					}else{
-
+						$error = "";
+						echo $error;
 					}
 					
 				break;
@@ -181,7 +204,7 @@
 
 				//case for tag
 				case "tag":
-
+					$sql .= "SUBJECTS(label,author)";
 				break;
 
 				//case for media

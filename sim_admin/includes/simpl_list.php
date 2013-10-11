@@ -44,7 +44,7 @@ class simpl_list{
 		 
 		 		 switch($this->type){
 					case "page":
-						$tds = "<td><input type = 'checkbox'/></td><td>".$array['pID']."</td><td>".$array['title']."</td><td>".$array['author']."</td><td class = 'simpl_edit_button'><a href = ''>Edit</a></td>";
+						$tds = "<td><input type = 'checkbox'/></td><td>".$array['pID']."</td><td>".$array['title']."</td><td>".$array['author']."</td><td><div class = 'simpl_edit_button'><a href = ''>Edit</a></div></td>";
 					break;
 					case "user":
 						$tds = "<td><input type = 'checkbox'/></td><td>".$array['uID']."</td><td>".$array['username']."</td><td>".$array['rID']."</td><td class = 'simpl_edit_button'><a href = ''>Edit</a></td>";
@@ -58,7 +58,7 @@ class simpl_list{
 					}
 		 
 			$display .= "
-				<tr>
+				<tr class = 'simpl_manage_row'>
 					".
 						$tds
 					."
