@@ -52,7 +52,7 @@ div#simpl_quick_menu{
 
 #simpl_user_pages{
 	position:absolute;
-	right:0px;
+	right:17px;
 	margin-right:10px;
 	color:#002756;
 	text-shadow:0px 1px 0px #2A77FC;
@@ -74,6 +74,20 @@ div#simpl_quick_menu{
 	text-shadow:0px 1px 0px #2A77FC;
 }
 
+input#simpl_global_search{
+	padding:5px;
+	position:absolute;
+	top:0px;
+	right:1px;
+	border-radius:3px;
+	border:none;
+	background:#E0E0E0;
+}
+
+input#simpl_global_search:focus{
+	outline:none;
+}
+
 div#simpl_user_function_menu{
 	width:100%;
 background: #006aff; /* Old browsers */
@@ -93,11 +107,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', end
   height:20px;
 }
 
-form#simpl_global_search_form{
-	position:absolute;
-	right:0px;
-	top:0px;
-}
+
 
 div#simpl_main_cat_menu{
 	background:#001C49;
@@ -106,11 +116,13 @@ div#simpl_main_cat_menu{
 	margin-top:1px;
 	border-bottom:solid 1px #000D2B;
 	position:relative;
+	height:30px;
 }
 
 ul#simpl_main_menu li{
 	float:left;
 	margin-left:8px;
+	margin-top:3px;
 }
 
 ul#simpl_main_menu{
