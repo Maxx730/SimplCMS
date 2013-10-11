@@ -93,12 +93,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aff', end
   height:20px;
 }
 
+form#simpl_global_search_form{
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
 div#simpl_main_cat_menu{
 	background:#001C49;
 	float:left;
 	width:100%;
 	margin-top:1px;
 	border-bottom:solid 1px #000D2B;
+	position:relative;
 }
 
 ul#simpl_main_menu li{
@@ -241,7 +248,24 @@ div.simpl_add_new_button{
 }
 
 div.simpl_add_new_button:hover{
-	background:red;
+background: #63a4ff; /* Old browsers */
+background: -moz-linear-gradient(top,  #63a4ff 0%, #356599 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#63a4ff), color-stop(100%,#356599)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #63a4ff 0%,#356599 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #63a4ff 0%,#356599 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #63a4ff 0%,#356599 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #63a4ff 0%,#356599 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a4ff', endColorstr='#356599',GradientType=0 ); /* IE6-9 */
+border-top:solid 1px #84B7FF;
+text-shadow:0px 1px 0px #1A5799;
+
+	-moz-box-shadow:    0px -1px 0px 0px #356599;
+	-webkit-box-shadow: 0px -1px 0px 0px #356599;
+	box-shadow:         0px -1px 0px 0px #356599;
+}
+
+div.simpl_add_new_button:hover>a{
+	color:black;
 }
 
 div.simpl_add_new_button a{

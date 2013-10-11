@@ -9,6 +9,24 @@
 	if($check_login->simpl_check_login()){
 		$logged_user = new user($check_login->username);
 	}
+
+	//if the user is trying to manipulate/create an object whithin the system, these two POST variables will always be present, if they are run the check for errors object to make sure everything filled out correctly and that nothing that may be changed or created already exists in our database.
+	if(isset($_POST['cat']) && isset($_POST['action'])){
+		$error_checking = new simpl_error($_POST['action'],$_POST['cat']);
+
+		//make sure there are no errors before displaying fields.
+		if($error_checking->simpl_check_errors() == true){		
+			//if there are no errors find what to manipulate and how and execute the manipulation object.
+			$manipulator = new simpl_manipulator($check_login->username);
+			$manipulator->grab_action($_POST['action'],$_POST['cat']);
+		}else{
+			$error_checking->display_errors();
+		}
+	//if no actions are being taken, simply display the correct fields for adding a new object to the database.
+	}else if(isset($_GET['action']) && isset($_GET['cat'])){
+			$manipulator = new simpl_manipulator($check_login->username);
+			$fields = $manipulator->display_fields($_GET['action'],$_GET['cat']);
+	}
 ?>
 
 <html>	
@@ -56,6 +74,11 @@
 				<li class = "simpl_menu_link"><a href = "/dev/simplCMS/sim_admin/simpl_manage.php?cat=med">Media</a></li>
 				<li class = "simpl_menu_link"><a href = "">Preferences</a></li>
 			</ul>
+
+			<!-- search form for searchs that will search through the system globally. -->
+			<form name = "" action  "" method = "POST" id = "simpl_global_search_form">
+				<input type = "text" placeholder = "Search" id = "simpl_global_search" name = "simpl_global_search"/>
+			</form>
 		</div>
 		
 	</head>

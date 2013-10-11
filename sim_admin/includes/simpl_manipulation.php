@@ -120,7 +120,7 @@
 
 			}
 
-			echo $form .= "</div></form>";
+			return $form .= "</div></form>";
 		}
 
 

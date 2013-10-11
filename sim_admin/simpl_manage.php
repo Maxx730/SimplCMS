@@ -41,7 +41,7 @@ if($_GET['cat'] == 'med'){
 
 	 echo "
 	 <div class = 'simpl_add_new_button'>
-	 	<a href = 'simpl_add.php?cat=".$_GET['cat']."'>Add New</a>
+	 	<a href = 'simpl_add.php?cat=".$_GET['cat']."&action=add'>Add New</a>
 	 </div>
 	 <div class = 'simpl_add_new_button delete_button'>
 	 	<a href = ''>Delete</a>
